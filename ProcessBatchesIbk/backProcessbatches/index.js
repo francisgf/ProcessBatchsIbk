@@ -10,14 +10,20 @@ app.listen('3000', function() {
 
   app.get('/app/runbatches', (req, res) => {
     res.send('Processing..')
-    exec(' start saludo.bat', (err, stdout) =>{
+    exec('cd ../batchesProcessbatches', (err, stdout) =>{
+        if(err){
+            throw err;
+        }
+        console.log(' ------> Posicionamiento ejecutado con exito <-------');
+        console.log(stdout);
+    });
+    exec('start main.bat', (err, stdout) =>{
         if(err){
             throw err;
         }
         console.log(' ------> PROCESS SUCCESS <-------');
         console.log(stdout);
     });
-    
   });
 
 
