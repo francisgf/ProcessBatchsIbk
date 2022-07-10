@@ -13,27 +13,22 @@ app.listen('3000', function() {
   //main----------------------------------------
   app.get('/app/runbatches', cors(),(req, res) => {
     res.send('Processing..')
-    exec('start mainExample.bat', (err, stdout) =>{
+    exec('cd ../batchesProcessbatches', (err, stdout) =>{
         if(err){
             throw err;
         }
-        console.log(' ------> PROCESS SUCCESS <-------');
+        
+        console.log('posicionamiento correcto');
+        exec('start mainExample.bat', (err, stdout) =>{
+            if(err){
+                throw err;
+            }
+            console.log(' ------> PROCESS SUCCESS <-------');
+            console.log(stdout);
+        });
         console.log(stdout);
     });
   });
-
-//example----------------------------------------
-  app.get('/app/runbatches', cors(),(req, res) => {
-    res.send('Processing..')
-    exec('start mainExample.bat', (err, stdout) =>{
-        if(err){
-            throw err;
-        }
-        console.log(' ------> PROCESS SUCCESS <-------');
-        console.log(stdout);
-    });
-  });
-
 
 
 
