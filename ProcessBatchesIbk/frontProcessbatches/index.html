@@ -10,7 +10,7 @@
 <header>
     <nav>
         <div id="logo"><img src="/resources/Interbank_logo_2019_con_fondo.png" alt=""></div>
-     <ul>
+     <ul id="menu">
       <li>Opciones</li>
       <li>Configuración</li>
      </ul>
@@ -21,13 +21,15 @@
  <div id="content">
    <div id="content-btn">
     <button type="button" id="btnExecuteBat" onclick="runFetch()">Execute .bat file</button>
-    <button type="button">Clear log</button><br>
+    <button type="button" id="clear-lio" onclick="clearLog()">Clear log</button>  
    </div>
       <div id="log-content-main">
    <div >
       <ul id="log-container"></ul>
    </div>
+   
      </div>
+     <div id="path-folder"> <strong>Ruta de archivos:</strong> ../ProcessBatchesIbk\batchesProcessbatches </div>
 </div>
 </div>
   </body>

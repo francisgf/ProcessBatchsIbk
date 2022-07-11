@@ -22,20 +22,20 @@ nav {
     justify-content: initial;
 }
 
-ul {
+#menu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-ul li {
+#menu li {
     color: rgb(44, 44, 44);
     padding: 12px;
     font-size: 14px;
 }
 
-ul li:hover {
+#menu li:hover {
     background-color: rgb(0 192 67);
     border-radius: 5px;
     cursor: pointer;
@@ -85,16 +85,14 @@ button:hover{
     padding: 100px;
 }
 
-#log-content-main{
+#log-content-main {
     width: 500px;
     height: 300px;
-   background-color: rgb(241, 241, 241);
-   margin: auto;
-   padding: 10px;
-   border: solid 1px #d7d7d7;
-
+    background-color: rgb(241, 241, 241);
+    margin: 20px auto;
+    padding: 10px;
+    border: solid 1px #d7d7d7;
 }
-
 #content-btn{
    display: block; 
    padding: 10px;
@@ -107,4 +105,27 @@ button:hover{
     height: auto;
     text-align: end;
     margin: 20px;
+}
+
+#path-folder {
+    font-size: 11px;
+    height: 50px;
+    color: #737373;
+    display: inline;
+    padding: 10PX;
+    background: rgb(237 255 243);
+}
+
+#log-container{
+    display: block;
+    font-size: 12px;
+}
+
+#log-container li{
+    display: block;
+    font-size: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: initial;
 }
