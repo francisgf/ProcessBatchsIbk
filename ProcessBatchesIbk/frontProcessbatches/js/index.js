@@ -1,5 +1,6 @@
 
 const fecth = require("node-fetch")
+const exec= require("c")('child_process').exec
 
 function runFetch(){
  console.log("Ejecutando request fetch..");
@@ -21,4 +22,16 @@ function messageLogUI(ms){
 function clearLog(){
     const list = document.getElementById('log-container');
     list.removeChild(list.childNodes[0]);
+}
+
+function powerOffServer(){
+    alert("se apago")
+    exec('node index.js', (err, stdout) =>{
+        if(err){
+            throw err;
+        }else{
+            console.log("Iniciando ejecución")
+        }     
+        console.log(stdout);      
+    });  
 }

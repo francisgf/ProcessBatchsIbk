@@ -78,7 +78,7 @@ button:hover{
 }
 
 #content{
-    width: 800px;
+    width: auto;
     height: 600px;
     margin: auto;
     text-align: center;
@@ -98,13 +98,14 @@ button:hover{
    padding: 10px;
 }
 #version {
-    display: block;
     font-size: 12px;
     color: #b9b9b9;
     width: 100%;
     height: auto;
     text-align: end;
+    display: flex;
     margin: 20px;
+    justify-content: end;
 }
 
 #path-folder {
@@ -128,4 +129,45 @@ button:hover{
     margin: 0;
     padding: 0;
     text-align: initial;
+}
+
+#power-content {
+    display: flex;
+    height: auto;
+    width: auto;
+    padding: 5px 10px 5px 10px;
+    background: #e9e9e9;
+    align-items: center;
+}
+
+#power-content svg {
+    height: 20px;
+    width: 20px;
+    color: rgb(255 255 255);
+}
+#icon-power {
+    background: #00c043;
+    width: 50px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 5px 3px 5px;
+    border-radius: 5px;
+}
+
+#icon-power:hover{
+    background-color: #05a93e;
+}
+#icon-power span {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#node {
+    color: #4f4f4f;
+    padding: 0px 5px 0px 5px;
+}
+#state-server{
+    color: #00c043
 }
