@@ -21,6 +21,15 @@
 	
 @echo la ruta de los bacheros es : %rutaBacheros% 
 @echo.
+
+
+goto Salir
+:Loging
+	set nombreServer=echo %logonserver%
+	set usuarioLogueado=wmic computersystem get username
+	set cantExisteUsuario=TYPE prueba.txt |find /c %usuarioLogueado%
+
+:executeBat
 @echo Ejecutar bat
 (for %%a in (%rutaBacheros:"=%) do ( 
 	@echo --------------------------------------------------------------------------------
@@ -32,8 +41,8 @@
 ))> Log_Main_%fecha%.txt
 
 @echo fin de batchero
-
-goto Salir
+if %cantExisteUsuario%==0 goto :Salir
+else :executeBat
 
 :Salir
 start Log_Main_%fecha%.txt
