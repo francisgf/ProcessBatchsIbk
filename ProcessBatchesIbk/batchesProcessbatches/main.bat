@@ -16,7 +16,6 @@
 ::  --------------------------------------------------------------------------------
 	for /f "tokens=2-4 delims=/- " %%a in ('date /t') do set FECHA=%%a%%b%%c
 	for /f "tokens=1-4 delims=:. " %%a in ('time /t') do set HORA=%%a%%b
-	pause
 	set fecha=%FECHA%_%HORA%
 	
 @echo la ruta de los bacheros es : %rutaBacheros% 
