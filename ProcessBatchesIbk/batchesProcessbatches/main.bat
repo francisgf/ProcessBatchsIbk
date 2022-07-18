@@ -22,29 +22,39 @@
 @echo la ruta de los bacheros es : %rutaBacheros% 
 @echo.
 
+	wmic computersystem get username >user.txt
+	set username=type user.txt | findstr /v UserName | findstr "{\r\n}"
+	type users.json | find /i /c "%username%" >count.txt
+	
+	for /f "delims=" %%a in (count.txt) do (
+	  set/a counter=%%a
+	)
+	
+	DEL /F /A user.txt
+	DEL /F /A count.txt
+	
+	if %counter% GTR 0 goto executeBat
+	
+	goto salir
 
-goto Salir
-:Loging
-	set nombreServer=echo %logonserver%
-	set usuarioLogueado=wmic computersystem get username
-	set cantExisteUsuario=TYPE prueba.txt |find /c %usuarioLogueado%
 
 :executeBat
 @echo Ejecutar bat
 (for %%a in (%rutaBacheros:"=%) do ( 
 	@echo --------------------------------------------------------------------------------
 	@echo -------------ejecutando %%a 
+	@echo on
 	call %%a
+	@echo off
 	@echo -------------fin de ejecución de %%a
 	@echo --------------------------------------------------------------------------------
 	@echo ********************************************************************************
 ))> Log_Main_%fecha%.txt
-
 @echo fin de batchero
-if %cantExisteUsuario%==0 goto :Salir
-else :executeBat
+pause
+exit
 
-:Salir
-start Log_Main_%fecha%.txt
+:salir
+@echo no tiene permisos para ejecutar batcheros
 pause
 exit
