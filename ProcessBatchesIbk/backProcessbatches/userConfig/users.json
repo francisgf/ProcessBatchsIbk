@@ -1,0 +1,12 @@
+{
+   "users":[
+   {
+    "type":"ADMIN",
+    "name":"IBKLaptop-01"
+   },
+    {
+    "type":"ADMIN",
+     "name":"IBKLaptop-02"
+   }
+    ]		
+}

@@ -7,9 +7,6 @@
     font-family: 'Archivo', sans-serif;
 }
 
-a:link, a:visited, a:active {
-    text-decoration:none;
-}
 header {
     display: block;
     justify-content: center;
@@ -166,4 +163,85 @@ button:hover{
 }
 #state-server{
     color: #00c043
+}
+
+#user-main-content {
+    width: 600px;
+    height: 500px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+#form-user {
+    width: 2450px;
+    height: 250px;
+    background-color: #ffffff08;
+    display: block;
+    padding: 30px;
+    text-align: center;
+    box-shadow: -1px 3px 19px 1px rgb(40 40 40 / 11%);
+}
+
+#txtuser {
+    width: 150px;
+    padding: 13px;
+    border: 1px solid #00c043;
+    border-radius: 3px;
+    outline: none;
+    color: #6a6a6a;
+}
+
+#txtuser:focus{
+    box-shadow: 5px 0 10px rgba(1, 136, 8, 0.19);
+  
+}
+
+#typeuser {
+    width: 160px;
+    padding: 13px;
+    border: 1px solid #00c043;
+    border-radius: 3px;
+    color: #6a6a6a;
+    outline: none;
+    font-size: 12px;
+}
+
+#typeuser option{
+    list-style: none;
+}
+
+#list-user {
+    width: auto;
+    height: auto;    
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+
+table {
+    width: 300px;
+    height: auto;
+    background: #f9f9f9;
+    padding: 15px;
+}
+table thead {
+    padding: 5px;
+    margin: 5px;
+    height: 15px;
+}
+
+table thead tr th {
+    font-size: 10px;
+    padding: 3px;
+    margin: 2px;
+    background: #00c043;
+    color: aliceblue;
+    font-weight: 100;
+}
+
+#data tr  td{
+     font-size: 9px;
+     height: 20px;
+     background: white;
 }

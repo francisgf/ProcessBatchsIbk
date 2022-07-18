@@ -1,9 +1,37 @@
 {
+  "name": "frontprocessbatches",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "dependencies": {
+    "asynckit": "^0.4.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0-beta1",
     "child_process": "^1.0.2",
+    "combined-stream": "^1.0.8",
     "cors": "^2.8.5",
-    "node-fetch": "^3.2.6"
-  }
+    "data-uri-to-buffer": "^4.0.0",
+    "delayed-stream": "^1.0.0",
+    "expres": "^0.0.5",
+    "express": "^4.18.1",
+    "fetch-blob": "^3.2.0",
+    "follow-redirects": "^1.15.1",
+    "form-data": "^4.0.0",
+    "formdata-polyfill": "^4.0.10",
+    "mime-db": "^1.52.0",
+    "mime-types": "^2.1.35",
+    "node-domexception": "^1.0.0",
+    "node-fetch": "^3.2.6",
+    "object-assign": "^4.1.1",
+    "open": "^8.4.0",
+    "vary": "^1.1.2",
+    "web-streams-polyfill": "^3.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
