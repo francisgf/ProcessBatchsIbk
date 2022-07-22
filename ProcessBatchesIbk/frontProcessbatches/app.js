@@ -12,8 +12,8 @@ app.listen(port,()=>{
 app.get("/app",(req, res) => {
   res.statusCode=200;
   console.log("Run app")
-  res.render("index.html",{title:"hola"})
-res.send("hola mundo")
+  res.send("hola mundo")
+  //res.render("index.html",{title:"hola"})
 });
 startPath();
   function startPath(){
