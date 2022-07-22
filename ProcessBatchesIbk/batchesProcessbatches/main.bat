@@ -21,23 +21,6 @@
 @echo la ruta de los bacheros es : %rutaBacheros% 
 @echo.
 
-	wmic computersystem get username >user.txt
-	set username=type user.txt | findstr /v UserName | findstr "{\r\n}"
-	type users.json | find /i /c "%username%" >count.txt
-	
-	for /f "delims=" %%a in (count.txt) do (
-	  set/a counter=%%a
-	)
-	
-	DEL /F /A user.txt
-	DEL /F /A count.txt
-	
-	if %counter% GTR 0 goto executeBat
-	
-	goto salir
-
-
-:executeBat
 @echo Ejecutar bat
 (for %%a in (%rutaBacheros:"=%) do ( 
 	@echo --------------------------------------------------------------------------------
@@ -50,10 +33,5 @@
 	@echo ********************************************************************************
 ))> Log_Main_%fecha%.txt
 @echo fin de batchero
-pause
-exit
-
-:salir
-@echo no tiene permisos para ejecutar batcheros
 pause
 exit
