@@ -10,6 +10,7 @@ app.use(cors());
 const url = '/app/runbatches'
 const urlFileTxt = '/app/readfiletxt'
 const urlFileJson = '/app/readfilejson'
+const urlWriteJson = '/app/writefilejson'
 
 app.listen('3000', function () {
     console.log('Servidor escuchando en el puerto 3000');
@@ -21,14 +22,18 @@ app.get(url, cors(), (req, res) => {
 });
 
 app.get(urlFileTxt, cors(), (req, res) => {
-    res.send(readLog());
+    readLog()
 });
 
 app.get(urlFileJson, cors(), (req, res) => {
-   
    let json= readUser();
     res.json(json);
 });
+
+app.get(urlWriteJson, cors(), (req, res) => {
+writeUser();
+ });
+
 //-------- END: END POINTS ------------
 
 function runBatch() {
@@ -55,6 +60,7 @@ function readLog() {
 
 }
 
+
 function readUser() {
    let data= lector.readFileSync('./userConfig/users.json');     
         let users = JSON.parse(data).users;
@@ -63,7 +69,28 @@ function readUser() {
         return users;
 }
 
+/*
+function readUser2(){
+lector.readFile('./userConfig/users.json', (err, data) => {
+    if (err) throw err;
+        let users = JSON.parse(data).users;
+        console.log(users);       
+        return users;
+    
+});
+}*/
+
 function writeUser() {
 
+let usersWrite = { 
+    name: 'Mike',
+    age: 30, 
+    gender: 'Male',
+    department: 'car',
+    car: 'Honda' 
+};
+ 
+let data = JSON.stringify(usersWrite);
+lector.writeFileSync('usersWrite.json', data);
 }
 

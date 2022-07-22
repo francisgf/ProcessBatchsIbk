@@ -36,8 +36,9 @@ function getUsers(){
     for (let i = 0; i < data.length; i++) {
       html += `
       <tr>
-        <td>${data[i].type}</td>
+        <td>${data[i].type}</td> 
         <td>${data[i].name}</td>
+        <td>Editar</td>
       </tr>
       `;
     }  
