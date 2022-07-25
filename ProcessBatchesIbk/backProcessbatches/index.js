@@ -23,9 +23,9 @@ app.listen('3000', function () {
 app.get(url, cors(), (req, res) => {
     res.send('Processing..');
     if (runBatch()) {
-        res.sendStatus(500)
-    } else {
         res.sendStatus(200)
+    } else {
+        res.sendStatus(500)
     }
 });
 
