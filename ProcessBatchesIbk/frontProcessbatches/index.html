@@ -9,7 +9,7 @@
   <body>
 <header>
     <nav>
-        <div id="logo"><img src="/resources/Interbank_logo_2019_con_fondo.png" alt=""></div>
+        <div id="logo"><img src="/resources/Interbank_logo_2019_con_fondo.png" alt="" onclick="readLog()"></div>
      <ul id="menu">
       <a href="#"><li>Opciones</li></a>
       <a href="#"><li>Configuración</li> </a>
@@ -35,6 +35,10 @@
    <div id="content-btn">
     <button type="button" id="btnExecuteBat" onclick="runFetch()">Execute .bat file</button>
     <button type="button" id="clear-lio" onclick="clearLog()">Clear log</button>  
+    <span id="ms-error"></span>
+    <div id="content_spinner">
+      <!-- <div class="spinner"> </div>-->
+   </div>
    </div>
       <div id="log-content-main">
    <div id="log-container">
