@@ -33,27 +33,20 @@
 
 
 :executeNode
-@echo Ejecutar bat
-::(
+@echo Ejecutar batches
 	@echo --------------------------------------------------------------------------------
-	@echo -------------ejecutando back node and front
+	@echo -------------ejecutando batches -------------
 	@echo on
-	start cmd
-	cd ..\backProcessbatches\
-	::call npm start
-	start powershell.exe -Command "npm start"
-	::start cmd
-	cd ..\frontProcessbatches\
-	start powershell.exe -Command "npm start"
+
+	start powershell.exe -command "start main.bat"
 	
 	@echo off
 	
 	@echo -------------fin de ejecución 
 	@echo --------------------------------------------------------------------------------
 	@echo ********************************************************************************
-::)> Log_Login_%fecha%.txt
 @echo fin de batchero
-pause
+::pause
 exit
 
 :salir

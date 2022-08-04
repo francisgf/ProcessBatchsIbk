@@ -33,5 +33,5 @@
 	@echo ********************************************************************************
 ))> Log_Main_%fecha%.txt
 @echo fin de batchero
-pause
+::pause
 exit
