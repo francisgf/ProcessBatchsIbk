@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ViewPrincipal extends javax.swing.JFrame {
 
+    private String path;
+    
     /**
      * Creates new form ViewPrincipal
      */
@@ -25,6 +27,14 @@ public class ViewPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,7 +131,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
             if(cb_info.isSelected()) {
                 list.add(cb_info.getText().replace("Level ",""));
             }
-            addRowsTable(dtm, lectura.filterError(list));
+            addRowsTable(dtm, lectura.filterError(list,getPath()));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -136,10 +146,10 @@ public class ViewPrincipal extends javax.swing.JFrame {
             dtm.setRowCount(0);
         }
         logs.forEach(log -> {
-            dtm.addRow(new String[]{log.getLine(), log.getText(), log.getTypeError().getValueName()});
+            dtm.addRow(new String[]{log.getDate(), log.getText(), log.getTypeError().getValueName()});
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btn_filter;
     private javax.swing.JCheckBox cb_error;

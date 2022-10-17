@@ -20,31 +20,38 @@ import java.util.stream.Collectors;
 public class LecturaLogsImpl implements LecturaLogsInterface {
 
     @Override
-    public List<Logs> readError() throws Exception {
-        File file = new File(returnConfigProperties("path"));
+    public List<Logs> readError(String path) throws Exception {
+        if (path == null || path == "") {
+            path = returnConfigProperties("path");
+        }
+        File file = new File(path);
         return Files.readAllLines(file.toPath())
                 .stream()
                 .map(line -> {
-                    String[] array = line.split("\\|");
+                    String[] array = line.replace("\"", "").split("\\|");
                     Logs log = new Logs();
-                    log.setLine(array[0]);
-                    log.setText(array[1]);
-                    log.setTypeError(generateTypeError(array[2]));
+                    log.setDate(array[0].trim());
+                    log.setText(array[1].trim());
+                    if (array.length < 3) {
+                        log.setTypeError(generateTypeError(""));
+                    } else {
+                        log.setTypeError(generateTypeError(array[2].trim()));
+                    }
                     return log;
                 })
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Logs> filterError(List<String> list) throws Exception {
+    public List<Logs> filterError(List<String> list, String Path) throws Exception {
         boolean isActiveFilter = Boolean.valueOf(returnConfigProperties("activeFilter"));
         if (isActiveFilter) {
-            if (list.size() == 1) {
-                return readError().stream()
+            if (list != null && list.size() == 1) {
+                return readError(Path).stream()
                         .filter(log -> log.getTypeError().getValueName().equalsIgnoreCase(list.get(0)))
                         .collect(Collectors.toList());
-            }else{
-               return readError();
+            } else {
+                return readError(Path);
             }
         }
         return null;

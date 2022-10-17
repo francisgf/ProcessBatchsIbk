@@ -11,15 +11,15 @@ package com.lectura.logs.entities;
  */
 public class Logs {
 
-    private String line;
+    private String date;
     private String text;
     private TypeError typeError;
 
     public Logs() {
     }
-    
-    public String getLine() {
-        return line;
+
+    public String getDate() {
+        return date;
     }
 
     public String getText() {
@@ -30,8 +30,8 @@ public class Logs {
         return typeError;
     }
 
-    public void setLine(String line) {
-        this.line = line;
+    public void setDate(String line) {
+        this.date = line;
     }
 
     public void setText(String text) {
@@ -41,10 +41,4 @@ public class Logs {
     public void setTypeError(TypeError typeError) {
         this.typeError = typeError;
     }
-
-    @Override
-    public String toString() {
-        return "Logs{" + "line=" + getLine() + ", text=" + getText() + ", typeError=" + getTypeError() + '}';
-    }
-
 }

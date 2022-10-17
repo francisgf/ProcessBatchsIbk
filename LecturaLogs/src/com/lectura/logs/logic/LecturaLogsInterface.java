@@ -15,9 +15,9 @@ import java.util.ResourceBundle;
  */
 public interface LecturaLogsInterface {
 
-    public List<Logs> readError() throws Exception;
+    public List<Logs> readError(String path) throws Exception;
 
-    public List<Logs> filterError(List<String> list) throws Exception;
+    public List<Logs> filterError(List<String> list, String Path) throws Exception;
 
     default public String returnConfigProperties(String key) {
         ResourceBundle properties = ResourceBundle.getBundle("com.lectura.logs.config.config");

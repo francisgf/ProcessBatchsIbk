@@ -6,7 +6,6 @@
 package lecturalogs;
 
 import com.lectura.logs.entities.Logs;
-import com.lectura.logs.entities.TypeError;
 import com.lectura.logs.logic.LecturaLogsInterface;
 import com.lectura.logs.logic.impl.LecturaLogsImpl;
 import com.lectura.logs.view.ViewPrincipal;
@@ -26,8 +25,8 @@ public class LecturaLogs {
     public static void main(String[] args) {
         try {
             LecturaLogsInterface lectura = new LecturaLogsImpl();
-            Logs log = lectura.readError().stream()
-                    .filter(a -> a.getTypeError() == TypeError.ERROR)
+            Logs log = lectura.filterError(null, args.length > 0 ? args[0] : "")
+                    .stream()
                     .findFirst()
                     .orElseThrow(Exception::new);
 
@@ -35,17 +34,17 @@ public class LecturaLogs {
             if (resp == 0) {
                 java.awt.EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                        new ViewPrincipal().setVisible(true);
+                        ViewPrincipal viewPrincipal = new ViewPrincipal();
+                        viewPrincipal.setPath(args.length > 0 ? args[0] : "");
+                        viewPrincipal.setVisible(true);
                     }
                 });
             }
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "No se encontró errores en el proceso"+ ex,"Información", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No se encontró errores en el proceso", "Información", JOptionPane.INFORMATION_MESSAGE);
             Logger.getLogger(LecturaLogs.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
 }
-
-
